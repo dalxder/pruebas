@@ -1,0 +1,43 @@
+	
+This answer could be used with PostgreSQL version anterior to 9.4. Use dbaston's answer for PostgreSQL 9.4+
+
+The query is the following: (where 'GEOM' is the geometry field, id the field to include in json properties, shapefile_feature the table name, and 489445 is the id of the feature wanted)
+
+SELECT row_to_json(f) As feature \
+     FROM (SELECT 'Feature' As type \
+     , ST_AsGeoJSON('GEOM')::json As geometry \
+     , row_to_json((SELECT l FROM (SELECT id AS feat_id) As l)) As properties \
+     FROM shapefile_feature As l WHERE l.id = 489445) As f;
+output:
+
+{
+   "geometry":{
+      "type":"MultiPolygon",
+      "coordinates":[
+         [
+            [
+               [
+                  -309443.24253826,
+                  388111.579584133
+               ],
+               [
+                  -134666.391073443,
+                  239616.414560895
+               ],
+               [
+                  -308616.222736376,
+                  238788.813082666
+               ],
+               [
+                  -309443.24253826,
+                  388111.579584133
+               ]
+            ]
+         ]
+      ]
+   },
+   "type":"Feature",
+   "properties":{
+      "feat_id":489445
+   }
+}
