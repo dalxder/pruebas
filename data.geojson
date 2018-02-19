@@ -1,33 +1,47 @@
 {
-   "geometry":{
-      "type":"MultiPolygon",
-      "coordinates":[
-         [
-            [
-               [
-                  -4.24253826,
-                  74.579584133
-               ],
-               [
-                  -6.391073443,
-                  72.414560895
-               ],
-               [
-                  -6.222736376,
-                  73.813082666
-               ],
-               [
-                  -3.24253826,
-                  28.579584133
-               ]
-            ]
-         ]
-      ]
-   },
-   "type":"Feature",
-   "properties":{
-      "feat_id":489445
-   }
-   
-
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.40047,
+                    -71.2577
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "loc_name": "Waltham, MA",
+                "loc_id": 1
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.99019,
+                    -71.46259
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "loc_name": "Manchester, NH",
+                "loc_id": 2
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.75724,
+                    32.90977
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "loc_name": "TI Blvd, TX",
+                "loc_id": 3
+            }
+        }
+    ]
 }
